@@ -29,8 +29,15 @@ TEST(PiezasTest, dropPieceOnce)
 TEST(PiezasTest, dropPieceTwice)
 {
 	PiezasTest board;
-	board.dropPiece();
+	board.dropPiece(1);
 	ASSERT_EQ(board.dropPiece(2), O);
+}
+
+TEST(PiezasTest, dropPieceTwiceOnSameColumn)
+{
+	PiezasTest board;
+	board.dropPiece(0);
+	ASSERT_EQ(board.dropPiece(0), O);
 }
 
 TEST(PiezasTest, dropPiecePositiveOutOfBound)
