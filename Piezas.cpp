@@ -23,8 +23,14 @@ Piezas::Piezas()
 {
     turn = X;
     for (int i = 0; i < BOARD_ROWS; i++)
+    {
+        std::vector<Piece> tempVector;
         for (int j = 0; j < BOARD_COLS; j++)
-            board[i][j] = Blank;
+        {
+            tempVector.push_back(Blank);
+        }
+        board.push_back(tempVector);
+    }
 }
 
 /**
