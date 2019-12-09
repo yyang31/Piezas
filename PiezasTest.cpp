@@ -22,39 +22,39 @@ TEST(PiezasTest, sanityCheck)
 // DropPiece
 TEST(PiezasTest, dropPieceOnce)
 {
-	PiezasTest board;
+	Piezas board;
 	ASSERT_EQ(board.dropPiece(1), X);
 }
 
 TEST(PiezasTest, dropPieceTwice)
 {
-	PiezasTest board;
+	Piezas board;
 	board.dropPiece(1);
 	ASSERT_EQ(board.dropPiece(2), O);
 }
 
 TEST(PiezasTest, dropPieceTwiceOnSameColumn)
 {
-	PiezasTest board;
+	Piezas board;
 	board.dropPiece(0);
 	ASSERT_EQ(board.dropPiece(0), O);
 }
 
 TEST(PiezasTest, dropPiecePositiveOutOfBound)
 {
-	PiezasTest board;
+	Piezas board;
 	ASSERT_EQ(board.dropPiece(4), Invalid);
 }
 
 TEST(PiezasTest, dropPieceNegativeOutOfBound)
 {
-	PiezasTest board;
+	Piezas board;
 	ASSERT_EQ(board.dropPiece(-1), Invalid);
 }
 
 TEST(PiezasTest, dropPieceFull)
 {
-	PiezasTest board;
+	Piezas board;
 	board.dropPiece(0);
 	board.dropPiece(0);
 	board.dropPiece(0);
