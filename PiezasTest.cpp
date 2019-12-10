@@ -89,21 +89,29 @@ TEST(PiezasTest, pieceAtEmpty)
 TEST(PiezasTest, pieceAtEmptyWithOneDropped)
 {
 	Piezas board;
-	board.dropPiece(1, 1);
+	board.dropPiece(1);
 	ASSERT_EQ(board.pieceAt(2, 1), Blank);
 }
 
 TEST(PiezasTest, pieceAtOneOne)
 {
 	Piezas board;
-	board.dropPiece(1, 1);
-	ASSERT_EQ(board.pieceAt(1, 1), X);
+	board.dropPiece(1);
+	ASSERT_EQ(board.pieceAt(0, 1), X);
 }
 
 TEST(PiezasTest, pieceAtTwoTwo)
 {
 	Piezas board;
-	board.dropPiece(1, 1);
-	board.dropPiece(2, 2);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	ASSERT_EQ(board.pieceAt(0, 2), O);
+}
+
+TEST(PiezasTest, pieceAtColumnTwo)
+{
+	Piezas board;
+	board.dropPiece(2);
+	board.dropPiece(2);
 	ASSERT_EQ(board.pieceAt(2, 2), O);
 }
