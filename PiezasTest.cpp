@@ -134,7 +134,7 @@ TEST(PiezasTest, gameStatePartialyEmptyBoard)
 	ASSERT_EQ(board.gameState(), Invalid);
 }
 
-TEST(PiezasTest, gameStateColumnXWon)
+TEST(PiezasTest, gameStateRowXWon)
 {
 	Piezas board;
 	board.dropPiece(0);
@@ -152,7 +152,7 @@ TEST(PiezasTest, gameStateColumnXWon)
 	ASSERT_EQ(board.gameState(), X);
 }
 
-TEST(PiezasTest, gameStateXRowWon)
+TEST(PiezasTest, gameStateXColumnWon)
 {
 	Piezas board;
 	board.dropPiece(0);
@@ -160,17 +160,17 @@ TEST(PiezasTest, gameStateXRowWon)
 	board.dropPiece(0);
 	board.dropPiece(1);
 	board.dropPiece(0);
-	board.dropPiece(3);
 	board.dropPiece(2);
 	board.dropPiece(1);
 	board.dropPiece(2);
-	board.dropPiece(3);
 	board.dropPiece(2);
+	board.dropPiece(3);
+	board.dropPiece(3);
 	board.dropPiece(3);
 	ASSERT_EQ(board.gameState(), X);
 }
 
-TEST(PiezasTest, gameStateORowWon)
+TEST(PiezasTest, gameStateOColumnWon)
 {
 	Piezas board;
 	board.dropPiece(3);
@@ -180,10 +180,10 @@ TEST(PiezasTest, gameStateORowWon)
 	board.dropPiece(1);
 	board.dropPiece(0);
 	board.dropPiece(3);
+	board.dropPiece(3);
 	board.dropPiece(2);
 	board.dropPiece(1);
 	board.dropPiece(2);
-	board.dropPiece(3);
 	board.dropPiece(2);
-	ASSERT_EQ(board.gameState(), X);
+	ASSERT_EQ(board.gameState(), O);
 }
