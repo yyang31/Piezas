@@ -52,7 +52,7 @@ void Piezas::reset()
 Piece Piezas::dropPiece(int column)
 {
     // if out of bound
-    if (column < 0 || column > BOARD_COLS)
+    if (column < 0 || column > (BOARD_COLS - 1))
     {
         return Invalid;
     }
