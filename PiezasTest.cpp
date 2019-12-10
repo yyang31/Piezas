@@ -113,5 +113,5 @@ TEST(PiezasTest, pieceAtColumnTwo)
 	Piezas board;
 	board.dropPiece(2);
 	board.dropPiece(2);
-	ASSERT_EQ(board.pieceAt(2, 1), O);
+	ASSERT_EQ(board.pieceAt(1, 2), O);
 }
