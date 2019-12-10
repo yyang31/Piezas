@@ -57,16 +57,10 @@ Piece Piezas::dropPiece(int column)
         return Invalid;
     }
 
-    // if column is full
-    if (board[2][column] != Blank)
-    {
-        return Blank;
-    }
-
     // place piece
     for (int i = 0; i < BOARD_ROWS; i++)
     {
-        if (board[i][column] != Blank)
+        if (board[i][column] == Blank)
         {
             board[i][column] = turn;
             turn = turn == X ? O : X;
