@@ -97,5 +97,57 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
+    for (int i = 0; i < BOARD_COLS; i++)
+    {
+        if (board[2][i] == Blank)
+        {
+            return Invalid;
+        }
+    }
+
+    int XWon = 0;
+    int OWon = 0;
+
+    // checking for column win condition
+    for (int i = 0; i < BOARD_ROWS; i++)
+    {
+        if ((board[i][0] == board[i][1]) && (board[i][1] == board[i][2]) && (board[i][2] == board[i][3]))
+        {
+            if (board[i][0] == X)
+            {
+                XWon += 4;
+            }
+            else
+            {
+                OWon += 4;
+            }
+        }
+    }
+
+    // checking for row win condition
+    for (int i = 0; i < BOARD_COLS; i++)
+    {
+        if ((board[0][i] == board[1][i]) && (board[1][i] == board[2][i]))
+        {
+            if (board[0][i] == X)
+            {
+                XWon += 3;
+            }
+            else
+            {
+                OWon += 3;
+            }
+        }
+    }
+
+    if (XWon > OWon)
+    {
+        return X;
+    }
+    else if (OWon > XWon)
+    {
+        return O;
+    }
+
     return Blank;
 }

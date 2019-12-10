@@ -115,3 +115,75 @@ TEST(PiezasTest, pieceAtColumnTwo)
 	board.dropPiece(2);
 	ASSERT_EQ(board.pieceAt(1, 2), O);
 }
+
+// gameState
+TEST(PiezasTest, gameStateEmptyBoard)
+{
+	Piezas board;
+	ASSERT_EQ(board.gameState(), Invalid);
+}
+
+TEST(PiezasTest, gameStatePartialyEmptyBoard)
+{
+	Piezas board;
+	board.dropPiece(0);
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	ASSERT_EQ(board.gameState(), Invalid);
+}
+
+TEST(PiezasTest, gameStateColumnXWon)
+{
+	Piezas board;
+	board.dropPiece(0);
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	board.dropPiece(1);
+	board.dropPiece(3);
+	board.dropPiece(2);
+	board.dropPiece(0);
+	board.dropPiece(3);
+	ASSERT_EQ(board.gameState(), X);
+}
+
+TEST(PiezasTest, gameStateXRowWon)
+{
+	Piezas board;
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(0);
+	board.dropPiece(3);
+	board.dropPiece(2);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	ASSERT_EQ(board.gameState(), X);
+}
+
+TEST(PiezasTest, gameStateORowWon)
+{
+	Piezas board;
+	board.dropPiece(3);
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(0);
+	board.dropPiece(3);
+	board.dropPiece(2);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	board.dropPiece(2);
+	ASSERT_EQ(board.gameState(), X);
+}
