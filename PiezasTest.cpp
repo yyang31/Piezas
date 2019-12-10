@@ -205,3 +205,41 @@ TEST(PiezasTest, gameStateNoWinner)
 	board.dropPiece(3);
 	ASSERT_EQ(board.gameState(), Blank);
 }
+
+// reset
+TEST(PiezasTest, gameStateResetOnEmptyBoard)
+{
+	Piezas board;
+	board.reset();
+	ASSERT_EQ(board.pieceAt(0, 0), Blank);
+}
+
+TEST(PiezasTest, gameStateResetOnPartiallyFullBoard)
+{
+	Piezas board;
+	board.dropPiece(0);
+	board.dropPiece(0);
+	board.dropPiece(0);
+	board.dropPiece(2);
+	board.reset();
+	ASSERT_EQ(board.pieceAt(0, 0), Blank);
+}
+
+TEST(PiezasTest, gameStateResetOnFullBoard)
+{
+	Piezas board;
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	board.dropPiece(3);
+	board.dropPiece(2);
+	board.dropPiece(1);
+	board.dropPiece(0);
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	board.reset();
+	ASSERT_EQ(board.pieceAt(0, 0), Blank);
+}
